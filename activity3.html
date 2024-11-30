@@ -8,13 +8,36 @@
 </head>
 
 <body>
-    <h2></h2>
+    <h2>Promises in javascript</h2>
     <p id="p1"></p>
     <p id="p2"></p>
     <p id="p3"></p>
     <p id="p4"></p>
     <script>
+function add(a,b){
+    var sum=a+b;
+    display (sum);
+}
+function display(s){
+    document.getElementById("p1").innerHTML=s;
 
+}
+//producing code
+let mypromise=new Promise(function(myResolve,myReject){
+    var x=0;
+    if(x==0){
+        myResolve("ok")
+    }
+    else{
+        myReject("error")
+    }
+});
+
+//consuming code
+mypromise.then(
+    function(value){add(10,20)},
+    function (error){add(error)}
+);
 
     </script>
 </body>
